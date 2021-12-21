@@ -56,7 +56,7 @@ public class DynamicSynonymTokenFilterFactory extends
     private final String format;
     private final int interval;
     protected SynonymMap synonymMap;
-    protected Map<AbsSynonymFilter, Integer> dynamicSynonymFilters = new WeakHashMap<>();
+    protected Map<AbsSynonymFilter, Integer> dynamicSynonymFilters = Collections.synchronizedMap(new WeakHashMap<>());
     protected final Environment environment;
     protected final AnalysisMode analysisMode;
 
